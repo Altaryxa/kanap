@@ -189,7 +189,6 @@ function submitForm(e) {
     })
         .then((res) => res.json())
         .then((data) => {
-            console.log(json.stringify(data))
             const orderId = data.orderId
             window.location.href = "/html/confirmation.html" + "?orderId=" + orderId
         })
@@ -226,14 +225,14 @@ function makeRequestBody() {
     const city = form.elements.city.value
     const email = form.elements.email.value
     const body = {
-        contact : {
-            firstName : firstName,
-            lastName : lastName,
-            address : address,
-            city : city,
-            email : email,
+        contact: {
+            firstName: firstName,
+            lastName: lastName,
+            address: address,
+            city: city,
+            email: email,
         },
-        product : getIdsFromCache()
+        products: getIdsFromCache()
     }
     return body
 }
@@ -246,4 +245,5 @@ function getIdsFromCache() {
         const id = key.split("-")[0]
         ids.push(id)
     }
+    return ids
 }
