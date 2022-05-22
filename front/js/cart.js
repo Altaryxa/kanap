@@ -178,8 +178,6 @@ function submitForm(e) {
     if (isEmailInvalid()) return
 
     const body = makeRequestBody()
-    console.log("coucou")
-    console.log(body)
     fetch("http://localhost:3000/api/products/order", {
         method: "POST",
         headers: {
